@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import { api } from '../services/api';
+import api from '../services/api';
 
 interface IAuthState {
   token: string;
@@ -36,7 +36,7 @@ export const AuthProvider: React.FC = ({children}) => {
   });
 
   const signIn = useCallback( async ({email, password}) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('/', {
       email,
       password
     });
@@ -44,13 +44,13 @@ export const AuthProvider: React.FC = ({children}) => {
     const { token, user } = response.data;
 
     localStorage.setItem('@ProductsManagement:token', token);
-    localStorage.setItem('@ProductsManagement:user', user);
+    localStorage.setItem('@ProductsManagement:user', JSON.stringify(user));
 
     setData({token, user});
 
   }, []);
 
-  const signOut = useCallback( async () => {
+  const signOut = useCallback(() => {
     localStorage.removeItem('@ProductsManagement:token');
     localStorage.removeItem('@ProductsManagement:user');
 
