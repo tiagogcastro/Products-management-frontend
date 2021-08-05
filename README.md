@@ -20,7 +20,7 @@
   <p>
     Front end do projeto de gerenciamento de produtos.
   </p>
-  <p>🚀 Backend do projeto: <a href=""> clique aqui! </a></p>
+  <p>🚀 Backend do projeto: <a href="https://github.com/Tiaguin061/Products-management-backend"> clique aqui! </a></p>
 </div>
 
 </br>
